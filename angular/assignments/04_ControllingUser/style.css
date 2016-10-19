@@ -1,0 +1,29 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+	#wrapper {
+		margin: 0 auto;
+	}
+		form {
+			width: 85%;
+			margin: 1% auto;
+		}
+			fieldset,
+			label,
+			input {
+				margin: 0.5%;
+			}
+			table {
+				margin: 1%;
+			}
+				th {
+					width: 200px;
+					padding-right: 0.5%;
+				}
+				td {
+					padding-left: 1%;
+				}
+				th, td {
+					border: 1px solid black;
+				}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<form action="/user" method="post">
+			<label for="name">Your Name:</label>
+			<input type="text" id="name" name="name">
+			<label for="location">Dojo Location</label>
+			<select id="location" name="location">
+				<option>World Wide</option>
+				<option>Silicon Valley</option>
+				<option>Los Angeles</option>
+				<option>Seattle</option>
+				<option>Dallas</option>
+				<option>Chicago</option>
+				<option>Washington D.C.</option>
+			</select>
+			<label for="language">Language</label>
+			<select id="language" name="language">
+				<option>Javascript</option>
+				<option>Python</option>
+				<option>HTML</option>
+				<option>MySQL</option>
+				<option>PHP</option>
+			</select>
+			<label for="comment">Comment (optional):</label>
+			<textarea name="comment" id="comment"></textarea>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

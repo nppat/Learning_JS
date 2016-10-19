@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Quotes Redux | Home</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+	<body>
+		<div class="wrapper">
+			<div id="new_quote">
+				<h1>Welcome to QuotingDojo</12>
+				<form action="/quotes" method="post">
+					<label for="name">Your name: </label>
+					<input type="text" name="name" id="name" placeholder="Name..." required>
+					<label for="quote">Your quote: </label>
+					<textarea name="quote" id="quote" placeholder="Quote..."></textarea>
+					<button type="submit">Add My Quote</button>
+				</form>
+				<form action="/get_quotes" method="get">
+					<button type="submit">Skip to Quotes</button>
+				</form>
+			</div> <!-- end new_quote -->
+		</div> <!-- end wrapper -->
+	</body>
+</html>

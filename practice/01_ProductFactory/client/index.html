@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en' ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Product Factory</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<script type="text/javascript" src='/angular/angular.js'></script>
+	<script type="text/javascript" src='/angular-route/angular-route.js'></script>
+	<script type="text/javascript" src='/assets/app.js'></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div ng-controller="product_controller">
+			<form>
+				<fieldset>
+					<legend>Products Controller</legend>
+					<label for="name">Product Name</label>
+					<input type='text' name='name' id='name' placeholder='Product Name...' ng-model='product.name'>
+					<label for="price">Product Price</label>
+					<input type='number' min='0' step='0.01' name='price' id='price' placeholder="Price..." ng-model='product.price'>
+					<button type='submit' ng-click='addProduct()'>Add Product</button>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody ng-if='products'>
+							<tr ng-repeat='product in products'>
+								<td>{{ product.name }}</td>
+								<td>{{ product.price | currency: "$" }}</td>
+								<td><button type='submit' ng-click='delete(product)'>Delete Product</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

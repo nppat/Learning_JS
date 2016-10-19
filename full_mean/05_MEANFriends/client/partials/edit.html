@@ -1,0 +1,9 @@
+<form>
+	<input type='text' id='first_name' name='first_name' ng-model='updateFriend.first_name' placeholder="{{ friend.first_name }}" required>
+	<label for='first_name'>First Name</label><br>
+	<input type='text' id='last_name' name='last_name' ng-model='updateFriend.last_name' placeholder="{{ friend.lasst_name }}" required>
+	<label for='last_name'>Last Name</label><br>
+	<input type='date' id='birthday' name='birthday' ng-model='updateFriend.birthday' placeholder="{{ friend.birthday }}" required>
+	<label for='birthday'>Birthday</label><br>
+	<button type='submit'ng-click='updateFriend()'>Update</button>
+</form>

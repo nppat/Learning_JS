@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Controlling Users</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src='bower_components/angular/angular.js'></script>
+</head>
+<body>
+	<div id="wrapper" ng-controller="user_controller">
+		<form>
+			<fieldset>
+				<legend>Users Controller</legend>
+				<label for="first_name">First Name</label>
+				<input id="first_name" name="first_name" placeholder="First Name..." ng-model="user.firstName" required autofocus><br>
+				<label for="last_name">Last Name</label>
+				<input id="last_name" name="last_name" placeholder="Last Name..." ng-model="user.lastName" required><br>
+				<label for="language">Language</label>
+				<input id="language" name="language" placeholder="Language..." ng-model="user.favLang" required>
+				<button type="submit" ng-click="addUser()">Create User</button>
+				<table>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Fav. Language</th>
+						<th>Actions</th>
+					</tr>
+					<tbody ng-if="users">  <!-- if there is objects in users[], show td -->
+						<tr ng-repeat="user in users"> <!-- Loop through objects in users -->
+							<td>{{ user.firstName }}</td>
+							<td>{{ user.lastName }}</td>
+							<td>{{ user.favLang }}</td>
+							<td>
+								<button type="submit" ng-click="deleteUser(user)" >Delete User</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+	<script type='text/javascript'>
+		var app = angular.module('app', []);
+		// create controller "user_controller"
+		app.controller('user_controller', ['$scope', function($scope) {
+		// create empty array to store users
+		$scope.users = []
+		// Create a new user
+		$scope.addUser = function() {
+			console.log($scope.user.firstName, $scope.user.lastName, $scope.user.favLang); // show what was pulled from form
+			$scope.users.push($scope.user)  // add user to users[]
+			$scope.user = {}; // clear out inputs on form
+			console.log($scope.users); // log users[]
+		};
+
+		// Delete User from users[]
+		$scope.deleteUser = function(userToDelete){
+            $scope.users = $scope.users.filter( function(user){
+              return user !== userToDelete;
+            })
+            console.log($scope.users);
+          }
+		}]);
+	</script>
+</body>
+</html>

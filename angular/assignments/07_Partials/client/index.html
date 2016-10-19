@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<title>Partials and Controllers</title>
+	<script src="../angular/angular.js" charset="UTF-8" ></script>
+	<script src="../angular-route/angular-route.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		var app = angular.module('app', ['ngRoute']);
+		// Routes
+		app.config(function ($routeProvider) {
+			$routeProvider
+				.when('/customizeUsers', {
+					templateUrl: 'partials/customizeUsers.html',
+					controller: 'CustomizeUsersController'
+				})
+				.when('/userList', {
+					templateUrl: 'partials/userList.html',
+					controller: 'UserListsController'
+				})
+				.otherwise({
+					redirectTo: '/'
+			});
+		});
+
+		// Create Factory
+		app.factory('userFactory', function() {
+			var factory = {};
+			var users = [];
+
+			// return users
+			factory.index = function(callback){
+				callback(users);
+			}
+			factory.create = function(newUser) {
+				users.push(newUser);
+			}
+			factory.destroy = function(index) {
+				users.splice(index, 1);
+			}
+			return factory;
+		})
+
+		// Create CustomizeUsersController
+		app.controller('CustomizeUsersController', ['$scope', 'userFactory', '$location', function($scope, userFactory, $location) {
+			function showUsers(data){
+				$scope.users = data;
+				$scope.newUser = {};
+			}
+
+			$scope.users = [];
+
+			// get users
+			userFactory.index(showUsers);
+
+			$scope.addUser = function() {
+				userFactory.create($scope.newUser);
+				$scope.newUser = {};  // reset the form
+				$location.url('/userList');  // sends user to the userList partial
+			}
+
+			$scope.deleteUser = function($index) {
+				userFactory.destroy($index)
+			}
+		}]);
+
+		// Create UserListsController
+		app.controller('UserListsController', ['$scope', 'userFactory', function($scope, userFactory) {
+			function showUsers(data) {
+				$scope.users = data;
+			}
+
+			$scope.users = [];
+
+			userFactory.index(showUsers);
+		}]);
+	</script>
+</head>
+<body>
+	<div ng-app='app'>
+		<a href='#/customizeUsers'>Customize User</a> | <a href='#/userList'>List Users</a>
+		<div ng-view=''>
+			<!-- The is where partials will be loaded into -->
+		</div>
+	</div>
+</body>
+</html>

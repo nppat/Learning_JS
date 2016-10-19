@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Mongoose Dashboard | Home</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+	<body>
+		<div class="wrapper">
+			<h1>Whale Pod</h1>
+			<div class="show_all">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Length</th>
+						<th>Weight</th>
+						<th>Action</th>
+					</tr>
+					<% for (i in packs) { %>
+						<tr>
+							<td><%= packs[i].name  %></td>
+							<td><%= packs[i].age  %></td>
+							<td><%= packs[i].length  %></td>
+							<td><%= packs[i].weight  %></td>
+							<td>
+								<form action="/whale/<%= packs[i]._id %>" method="GET">
+									<button type="submit">View Info</button>
+								</form>
+							</td>
+							<td>
+								<form action="/whale/<%= packs[i]._id %>/edit" method="GET">
+									<button type="submit">Edit</button>
+								</form>
+							</td>
+							<td>
+								<form action="/whale/<%= packs[i]._id %>/destroy" method="POST">
+									<button type="submit">Delete</button>
+								</form>
+							</td>
+						</tr>
+					<% } %>
+				</table>
+			</div> <!-- end show_all -->
+			<div id="new_form">
+				<h2>Add a new member to the pod</h2>
+				<form action="/whale/new" method="POST">
+					<label for="name">Name: </label>
+					<input type="text" name="name" id="name" placeholder="Name..." required>
+					<label for="age">Age: </label>
+					<input type="text" name="age" id="age" placeholder="Age...">
+					<label for="length">Length: </label>
+					<input type="text" name="length" id="lenght" placeholder="Length...">
+					<label for="weight">Weight: </label>
+					<input type="text" name="weight" id="weight" placeholder="Weight...">
+					<button type="submit">Create</button>
+				</form>
+			</div> <!-- end new_form -->
+		</div> <!-- end wrapper -->
+	</body>
+</html>

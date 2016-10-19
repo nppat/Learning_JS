@@ -1,0 +1,25 @@
+<div class="home_left">
+	<table>
+		<thead>
+			<th>
+				<td>Name</td>
+				<td>Show</td>
+				<td>Update</td>
+				<td>Delete</td>
+			</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="friend in friends | filter:filterBirthday">
+				<td>{{ friend.first_name }} {{ friend.last_name }}</td>
+				<td><a href='#/show/{{ friend._id }}'>Show</a></td>
+				<td><a href='#/update/{{ friend._id }}'>Update</a></td>
+				<td><a href='#/delete/{{ friend._id }}'>Delete</a></td>
+		</tbody>
+	</table>
+</div>
+<div class="home_right">
+	<form>
+		<input type='text' id="bday_filter" name="bday_filter" placeholder="Filter: Birthday" ng-model='filterBirthday'>
+	</form>
+	<a href='#/new'>New Friend</a>
+</div>

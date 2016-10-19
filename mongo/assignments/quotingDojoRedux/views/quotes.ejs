@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Quotes Redux | Quotes</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+	<body>
+		<div class="wrapper">
+			<div id="new_quote">
+				<h1>Here are the awesome quotes!</12>
+				<% for (i in quotes) { %>
+					<blockquote>
+						<p>"<%= quotes[i].quote %>"</p>
+						<h3> - <%= quotes[i].name %></h3>
+						<p><%= quotes[i].createdAt %></p>
+						<hr>
+					</blockquote>
+				<% } %>
+				<form action="/" mehtod="GET">
+					<button type="submit">Back</button>
+				</form>
+			</div> <!-- end new_quote -->
+		</div> <!-- end wrapper -->
+	</body>
+</html>

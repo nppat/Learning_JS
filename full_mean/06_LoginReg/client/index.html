@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+<head>
+	<meta charset='UTF-8'>
+	<title>Login &amp; Reg</title>
+	<!--  Load CSS stylesheet 
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css"> -->
+	<!--  Load Angular and Angular-Route -->
+	<script type="text/javascript" src='/angular/angular.js'></script>
+	<script type="text/javascript" src='/angular-route/angular-route.js'></script>
+	<script type="text/javascript" src='angular-messages/angular-messages.js'></script>
+	<script type="text/javascript" src='angular-cookies/angular-cookies.js'></script>
+	<!-- Load Factories, Controllers, and app.js -->
+	<script type="text/javascript" src='/assets/app.js'></script>
+	<script type="text/javascript" src='/assets/factories/usersFactory.js'></script>
+	<script type="text/javascript" src='/assets/controllers/userController.js'></script>
+	<script type="text/javascript" src='/assets/controllers/homeController.js'></script>
+</head>
+<body>
+	<div id='wrapper'>
+		<!-- ng-view will load each view that is called for -->
+		<h1>Welcome</h1>
+		<p><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
+		<div ng-view=''></div>
+	</div>
+</body>
+</html>

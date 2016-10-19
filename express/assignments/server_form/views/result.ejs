@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div id="result_holder">
+			<h2>Submitted Information</h2>
+			<p>Name: <%= data.name %></p>
+			<p>Dojo Location: <%= data.location %></p>
+			<p>Favorite Language: <%= data.language %></p>
+			<p>Comment: <%= data.comment %></p>
+		</div>
+		<form action="/back" method="get">
+			<button type="submit">Go Back</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<fieldset>
+	<legend>Users Controller</legend>
+	<form>
+		<label for='first_name'></label>
+		<input type='text' name='first_name' id='first_name' ng-model='newUser.first_name' placeholder='First Name...' required >
+		<label for='last_name'></label>
+		<input type='text' name='last_name' id='last_name' ng-model='newUser.last_name' placeholder='Last Name...' required >
+		<label for='favLang'></label>
+		<input type='text' name='favLan' id='favLang' ng-model='newUser.favLang' placeholder='Favorite Language' required >
+		<button type="submit" ng-click='addUser()'>Add User</button>
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Fav Language</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='user in users track by $index'>
+				<td>{{ user.first_name }}</td>
+				<td>{{ user.last_name }}</td>
+				<td>{{ user.favLang }}</td>
+				<td>
+					<button ng-click="deleteUser($index)">Delete User</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>

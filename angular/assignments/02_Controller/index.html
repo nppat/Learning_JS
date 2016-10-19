@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+<head>
+	<meta charset='UTF-8'>
+	<title>02 Controller and Directives</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript">
+		// create angular module named 'app'
+		var app = angular.module('app', []);
+		// create controller named divController that is a property of app and included $scope dependency
+		app.controller('divController', ['$scope', function($scope){
+			$scope.foods = []; // create empty foods array to store input from form
+
+			$scope.addFood = function() {
+				// push input to foods array
+				$scope.foods.push($scope.newFood);
+				// clear the form
+				$scope.newFood = '';
+			};
+		}]);
+	</script>
+</head>
+<body>
+	<div ng-controller="divController">
+		<div id="left">
+			<form>
+				Favorite Food: <input type="text" ng-model="newFood">
+				<input type='submit' value='Add Food' ng-click="addFood()">
+			</form>
+			<div id ='model' ng-if = "newFood">
+				<!-- If input is detected in input box, create div and display input that is typed into newFood input -->
+				<span>
+					Currently Typing: {{newFood}}
+				</span>
+			</div>
+		</div>
+		<div id="right">
+			<form>
+				<input type='text' placeholder="Filter..." ng-filter="myFilter">
+			</form>
+			<ul>
+				<li ng-repeat="food in foods| filter:myFilter track by $index">{{food}}</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

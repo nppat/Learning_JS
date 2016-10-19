@@ -1,0 +1,14 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ #wrapper {
+ 	margin: 0 auto;
+ }
+ 	.home_left,
+ 	.home_right {
+ 		display: inline-block;
+ 	}
+ 	.home_left {
+ 		vertical-align: top;
+ 	}

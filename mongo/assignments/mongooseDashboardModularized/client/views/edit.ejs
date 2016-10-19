@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Mongoose Dashboard | Edit Pack Member</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+	<body>
+		<div class="wrapper">
+			<h1>Edit pack member</h1>
+			<form action="/whale/<%= individual[0]._id %>" method="POST">
+				<label for="name">Name: </label>
+				<input type="text" name="name" id="name" placeholder="Name...">
+				<label for="age">Age: </label>
+				<input type="number" name="age" id="age" placeholder="Age...">
+				<label for="length">Length: </label>
+				<input type="text" name="length" id="lenght" placeholder="Length...">
+				<label for="weight">Weight: </label>
+				<input type="text" name="weight" id="weight" placeholder="Weight...">
+				<button type="submit">Create</button>
+			</form>
+			<form action="/" method="get">
+				<button type='submit'>Back</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Button Fun</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript">
+		$('document').ready(function(){
+			$('#button').click(function() {
+				var color = $(this).css("background-color");
+				// On button click, background-color changes to red
+				$(this).css("background-color", "red");
+			});
+			$('#button').mouseover(function() {
+				// Hover over, and the background changes to green, text to white
+				$(this).css('background-color', "green").css("color","white");
+			})
+			.mouseout (function(){
+				// When mouse leaves button, background goes back to blue and text to black
+				$(this).css('background-color', 'blue').css("color", "black");
+			});
+		});	
+	</script>
+</head>
+<body>
+	<button id="button">Click Here!</button>
+</body>
+</html>
