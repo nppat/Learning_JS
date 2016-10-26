@@ -11,3 +11,5 @@ posts.
 
 #### Later Improvements ####
 -  Will go back through and impliment Bootstrap for styling, have just ran out of time for now.
+
+#### Shout out to Tommy Oh for the help ####
