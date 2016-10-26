@@ -1,0 +1,40 @@
+<div id="wrapper">
+	<div id='header'>
+		<h1>Full MEAN Wall</h1>
+		<h3>Welcome, {{ username }}</h3>
+		<button type='submit' ng-click='logout()'>Sign Out</button>
+	</div>
+	<div id='main_container'>
+		<p>Post a message:</p>
+		<div ng-if="postError">
+			<div ng-repeat="error in postError">
+				<strong>Error!</strong> {{ error.message }}
+			</div>
+		</div>
+		<form ng-submit='create_post()'>
+			<textarea rows='6' cols='100' ng-model='newPost.post'></textarea><br>
+			<button type='submit'>Post a message</buttoN>
+		</form>
+		<div id='message_container' ng-repeat="post in posts | orderBy:'-createdAt' track by $index">
+			<section id='post'>
+				<h4>{{ post.userName }} - {{ post.updatedAt | date:'h:mm a M/d/yy' }}</h4>
+				<p>{{ post.post }}</p>
+			</section>
+			<div id='comments'>
+				<section id='comments' ng-repeat='comment in post._comments'>
+					<h4>{{ comment.username }} - {{ comment.updatedAt | date:"h:mm a M/d/yy" }}</h4>
+					<p>{{ comment.comment }}</p>
+				</section>
+				<div ng-if="commentError">
+					<div ng-repeat="error in commentError">
+						<strong>Error!</strong> {{ error.message }}
+					</div>
+				</div>
+				<form ng-submit='create_comment($index)'>
+					<textarea rows='4' cols='75' ng-model='post.newComment'></textarea><br>
+					<button type='submit'>Add comment</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+<head>
+	<meta charset='UTF-8'>
+	<title>MEAN Wall | Login/Register</title>
+	<!-- CSS -->
+	<!-- Angular -->
+	<script type="text/javascript" src='/angular/angular.js'></script>
+	<script type="text/javascript" src='/angular-route/angular-route.js'></script>
+	<script type="text/javascript" src='/angular-messages/angular-messages.js'></script>
+	<script type="text/javascript" src='/angular-cookies/angular-cookies.js'></script>
+	<!-- App.js(Routes), Factories, and Controllers -->
+	<script type="text/javascript" src='/assets/app.js'></script>
+	<script type="text/javascript" src='/assets/factories/usersFactory.js'></script>
+	<script type="text/javascript" src='/assets/factories/wallsFactory.js'></script>
+	<script type="text/javascript" src='/assets/controllers/userController.js'></script>
+	<script type="text/javascript" src='/assets/controllers/loginRegController.js'></script>
+</head>
+<body>
+	<!-- Load partial here in div -->
+	<div id="partial-container" ng-view=''></div>
+</body>
+</html>

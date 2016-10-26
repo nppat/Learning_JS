@@ -1,0 +1,19 @@
+<div id='container'>
+	<h1>Register Here</h1>
+	<form ng-submit="register()">
+		<label for='first_name'>First Name:</label>
+		<input type='text' id='first_name' name='first_name' ng-model='newUser.first_name' required autofocus><br>
+		<label for='last_name'>Last Name:</label>
+		<input type='text' id='last_name' name='last_name' ng-model='newUser.last_name' required><br>
+		<label for='username'>Username:</label>
+		<input type='text' id='username' name='username' ng-model='newUser.username' required><br>
+		<label for='email'>Email:</label>
+		<input type='email' id='email' name='email' ng-model='newUser.email' required><br>
+		<label for='password'>Password:</label>
+		<input type='password' id='password' name='password' ng-model='newUser.password' required><br>
+		<label for='confirmPassword'>Confirm Password:</label>
+		<input type='password' id='confirmPassword' name='confirmPassword' ng-model='newUser.confirmPassword' required><br>
+		<button type='submit'>Register</button>
+	</form>
+	<p>Already registered? Login <a href='#/login'>here</a>!</p>
+</div>
