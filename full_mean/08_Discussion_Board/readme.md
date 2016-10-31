@@ -10,5 +10,8 @@ Once again, associations between models is my weakness.
 Also had difficulty with comments not being able to be created, but this was due to a misplacement of the comment 
 	form on the topic partial, not being included with the post to be able to pull the post id.
 
+### Styling ###
+I know I should take more time to style this correctly, but I went throught and did a quick job so that it is atleast readable.
+I will go back through when I have time and impliment Bootstrap.
 
 #### Once again Mr. Tommy Oh is a great resource to see where you've done wrong! ####
