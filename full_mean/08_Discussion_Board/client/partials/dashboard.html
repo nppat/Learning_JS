@@ -1,0 +1,57 @@
+<div class='wrapper' id="dashboard">
+	<div id='dashboard_header'>
+		<h1>Welcome, {{ username }}!</h1>
+		<div class='navbar'>
+			<a href='#/user/{{ username }}'>User Profile</a>
+			<a href='#/logout' ng-click='logout()'>Logout</a>
+		</div>
+		<div id='search_bar'>
+			<input type='search' name='search' placeholder='Search Topics' ng-model='search.topic'>
+		</div>
+	</div> <!-- end Dashboard Header -->
+	<div id='dashboard_main_content'>
+		<div id='topicError' ng-if='topicError'>
+			<div ng-repeat='error in topicError'>
+				<section>{{ error.message }}</section>
+			</div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Topic</th>
+					<th>User Name</th>
+					<th>Posts</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='topic in topics | orderBy:"-createdAt" | filter:search'>
+					<td>{{ topic.category }}</td>
+					<td><a href='#/topic/{{topic._id}}'>{{ topic.topic }}</a></td>
+					<td><a href='#/user/{{topic.username}}'>{{ topic.username }}</a></td>
+					<td>{{ topic._topic_posts.length }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div><!-- end Main Content -->
+	<div id='dashboard_new_topic'>
+		<h3>Add a new Topic</h3>
+		<form  ng-submit="create_topic()">
+			<label for='topic'>Topic:</label>
+			<input type='text' name='topic' id='topic' ng-model='newTopic.topic' ><br>
+			<label for='description'>Description:</label>
+			<textarea rows='6' id='description' name='description' ng-model='newTopic.description'></textarea><br>
+			<label for='category'>Category:</label>
+			<select id='category' name='category' ng-model='newTopic.category'>
+				<option>Web Fundamentals</option>
+				<option>Python</option>
+				<option>MEAN</option>
+				<option>LAMP</option>
+				<option>C#/.NET</option>
+				<option>HTML</option>
+				<option>CSS</option>
+			</select><br>
+			<button type='submit'>Submit</button>
+		</form>
+	</div><!-- end Add Topic -->
+</div>

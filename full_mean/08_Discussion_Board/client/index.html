@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+<head>
+	<charset meta='UTF-8'>
+	<title>Discussion Board</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<!-- Angular -->
+	<script type="text/javascript" src='/angular/angular.js'></script>
+	<script type="text/javascript" src='/angular-route/angular-route.js'></script>
+	<script type="text/javascript" src='/angular-messages/angular-messages.js'></script>
+	<script type="text/javascript" src='/angular-cookies/angular-cookies.js'></script>
+	<!-- App.js(Routes), Factories, and Controllers -->
+	<script type="text/javascript" src='/assets/app.js'></script>
+	<script type="text/javascript" src='/assets/factories/usersFactory.js'></script>
+	<script type="text/javascript" src='/assets/factories/topicsFactory.js'></script>
+	<script type="text/javascript" src='/assets/controllers/profileController.js'></script>
+	<script type="text/javascript" src='/assets/controllers/loginRegController.js'></script>
+	<script type="text/javascript" src='/assets/controllers/topicController.js'></script>
+	<script type="text/javascript" src='/assets/controllers/dashboardController.js'></script>
+</head>
+<body>
+	<div id='partialHolder' ng-view=''></div>
+</body>
+</html>

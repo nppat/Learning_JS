@@ -1,0 +1,15 @@
+<div class='wrapper'>
+	<div class='navbar'>
+		<a href='#/dashboard'>Dashboard</a>
+		<a href='#/logout' ng-click='logout()'>Logout</a>
+	</div>
+	<div id='user_main'>
+		<h2>Username: {{ username }}</h2>
+		<h3>Posted:</h3>
+		<ul>
+			<li>Topic - {{ count.topic }}</li>
+			<li>Posts - {{ count.post }}</li>
+			<li>Comments - {{ count.comment }}</li>
+		</ul>
+	</div>
+</div>

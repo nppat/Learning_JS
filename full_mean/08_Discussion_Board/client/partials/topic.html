@@ -1,0 +1,48 @@
+<div class="wrapper" id="topics">
+	<div class='navbar'>
+		<a href='#/dashboard'>Dashboard</a>
+		<a href='#/logout' ng-click='logout()'>Logout</a>
+	</div>
+	<div id='top'>
+		<div id='topic'>
+			<h2><a href='#/user/{{ topic.username }}'>{{ topic.username }}</a> posted a new topic.</h2>
+			<section><strong>{{ topic.topic }}</strong></section>
+			<section>Description:  {{ topic.description }}</section>
+		</div>
+		<div id='newPost'>
+			<h3>Post your answer here...</h3>
+			<form ng-submit="create_post(topic._id)">
+				<div ng-if="postError">
+					<div ng-repeat="error in postError">
+						<p>{{ error.message }}</p>
+					</div>
+				</div>
+				<textarea rows='7' ng-model='newPost.post'></textarea><br>
+				<button type='submit'>Post</button>
+			</form>
+		</div>
+	</div>
+	<div id='bottom'>
+		<div id='posts' ng-repeat='post in posts | orderBy:"-createdAt" track by $index'>
+			<div id='post'>
+				<p><a href='#/user/{{ post.username }}'>{{ post.username }}</a></p>
+				<p>{{ post.post }}</p>
+				<button ng-click='like($index)'>Like</button><span>{{ post.like }}</span>
+				<button ng-click='dislike($index)'>Dislike</button><span>{{ post.dislike }}</span>
+			</div>
+			<div id='comments' ng-repeat='comment in post._comments'>
+				<p><a href='#/user/{{ comment.username }}'>{{ comment.username}}</a></p>
+				<p>{{ comment.comment }}</p>
+			</div> <!-- end comments -->
+			<form ng-submit='create_comment($index)'>
+				<div ng-if="commentError">
+					<div ng-repeat="error in commentError">
+						{{ error.message }}
+					</div>
+				</div>
+				<textarea rows='5' ng-model="post.newComment"></textarea><br>
+				<button type='submit'>Click to add new comment</button>
+			</form>
+		</div> <!-- end posts -->
+	</div>
+</div>

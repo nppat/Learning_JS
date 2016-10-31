@@ -1,0 +1,103 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper {
+	width: 100%;
+	margin: 2.5% 0;
+}
+
+/* Home */
+	#home h1, #home h3, #home p {
+		text-align: center;
+	}
+
+	#home h1, #home h3 {
+		padding-bottom: 1%;
+	}
+
+/*  Login partial */
+	#login h2, #login form, #login p {
+		text-align: center;
+	}
+	#login h2 {
+		padding-bottom: 1%;
+	}
+	#login p {
+		padding-top: 1%;
+	}
+
+/*  Register Partial */
+	#register h1, #register form, #register p {
+		text-align: center;
+	}
+	#register h1 {
+		padding-bottom: 1%;
+	}
+	#register p {
+		padding-top: 1%;
+	}
+	#register form input {
+		margin-bottom: 0.5%;
+	}
+
+/* Dashboard */
+	#dashboard_header {
+		width: 30%;
+		margin-bottom: 2%;
+	}
+	#dashboard h1, #dashboard .navbar {
+		display: inline-block;
+	}
+	#dashboard h1 {
+		vertical-align: top;
+	}
+	#dashboard .navbar {
+		margin-left: 44%;
+	}
+	#search_bar {
+		text-align: right;
+	}
+	#dashboard form {
+		margin-top: 3%;
+	}
+/* Topic */
+	#topics {
+		margin-left: 1%;
+	}
+	#topics .navbar {
+		display: inline-block;
+		margin-left: 44%;
+	}
+	#topic {
+		margin-bottom: 1%;
+	}
+	#topic h2 {
+		margin-bottom: 0.5%;
+	}
+	#top {
+		margin-bottom: 1.5%;
+	}
+	#posts {
+		margin-left: 1%;
+	}
+	#comments, #posts form {
+		margin-top: 1%;
+		margin-left: 2%;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
